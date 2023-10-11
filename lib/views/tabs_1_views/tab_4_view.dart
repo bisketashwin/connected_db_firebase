@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:material3_app/utils/widgets/widgets.dart';
+import 'package:connected_db_firebase/utils/widgets/widgets.dart';
 
 class Tab4 extends StatefulWidget {
   @override

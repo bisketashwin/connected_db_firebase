@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:material3_app/theme/custom_color.dart';
+import 'package:connected_db_firebase/theme/custom_color.dart';
 
 class SubSiew1 extends StatefulWidget {
   const SubSiew1({super.key});

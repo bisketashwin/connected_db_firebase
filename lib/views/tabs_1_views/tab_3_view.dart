@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:material3_app/theme/custom_color.dart';
+import 'package:connected_db_firebase/theme/custom_color.dart';
 
 class Tab3 extends StatefulWidget {
   const Tab3({super.key});

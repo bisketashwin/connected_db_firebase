@@ -1,5 +1,5 @@
-name: material3_app
-description: A new Flutter project.
+name: connected_db_firebase
+description: This project is aimed at creating an app with dummy data that can give realitic rpoduct expreince in a interactive mock to get more incontext usertest feedback
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev

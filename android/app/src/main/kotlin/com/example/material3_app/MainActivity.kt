@@ -1,4 +1,4 @@
-package com.example.material3_app
+package com.example.connected_db_firebase
 
 import io.flutter.embedding.android.FlutterActivity
 

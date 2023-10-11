@@ -1,7 +1,7 @@
 ///// the bottom navigation hides on scroll up and come back on scroll down this is different from home_view
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:material3_app/utils/widgets/widgets.dart';
+import 'package:connected_db_firebase/utils/widgets/widgets.dart';
 
 import 'tabs_1_views/tabs_1_views.dart';
 

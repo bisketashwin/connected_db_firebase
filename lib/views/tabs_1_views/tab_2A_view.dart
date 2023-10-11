@@ -3,10 +3,10 @@
 import 'package:flutter/material.dart';
 // import 'package:intl/intl.dart';
 
-import 'package:material3_app/theme/custom_color.dart';
-import 'package:material3_app/utils/models/controllers.dart';
-import 'package:material3_app/utils/models/models.dart';
-import 'package:material3_app/utils/widgets/widgets.dart';
+import 'package:connected_db_firebase/theme/custom_color.dart';
+import 'package:connected_db_firebase/utils/models/controllers.dart';
+import 'package:connected_db_firebase/utils/models/models.dart';
+import 'package:connected_db_firebase/utils/widgets/widgets.dart';
 import 'package:provider/provider.dart';
 
 class Tab2A extends StatefulWidget {

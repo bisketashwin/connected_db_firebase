@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:material3_app/views/tabs_1_views/tab_1_sub_views/sub_view_1.dart';
+import 'package:connected_db_firebase/views/tabs_1_views/tab_1_sub_views/sub_view_1.dart';
 import 'package:provider/provider.dart';
 
 import '../../theme/custom_color.dart';

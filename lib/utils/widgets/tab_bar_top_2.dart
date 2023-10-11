@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:material3_app/theme/custom_color.dart';
+import 'package:connected_db_firebase/theme/custom_color.dart';
 
 Widget myTabBar2({required context}) {
   Color color1 = Theme.of(context)

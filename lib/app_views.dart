@@ -1,10 +1,10 @@
 // import 'utils/controllers/commodity_ticket_controller.dart';
 // ignore_for_file: constant_identifier_names
 
-// import 'package:material3_app/views/home_2_view.dart';
-import 'package:material3_app/views/home_2_view.dart';
-import 'package:material3_app/views/home_3_view.dart';
-import 'package:material3_app/views/log_in_view.dart';
+// import 'package:connected_db_firebase/views/home_2_view.dart';
+import 'package:connected_db_firebase/views/home_2_view.dart';
+import 'package:connected_db_firebase/views/home_3_view.dart';
+import 'package:connected_db_firebase/views/log_in_view.dart';
 
 import 'app_routes.dart';
 import 'package:get/get.dart';

@@ -94,7 +94,7 @@ BEGIN
             VALUE "FileVersion", VERSION_AS_STRING "\0"
             VALUE "InternalName", "Mat3 Route" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2023 com.example. All rights reserved." "\0"
-            VALUE "OriginalFilename", "material3_app.exe" "\0"
+            VALUE "OriginalFilename", "connected_db_firebase.exe" "\0"
             VALUE "ProductName", "Mat3 Route" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END

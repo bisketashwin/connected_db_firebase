@@ -1,6 +1,6 @@
 {
-    "name": "material3_app",
-    "short_name": "material3_app",
+    "name": "connected_db_firebase",
+    "short_name": "connected_db_firebase",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

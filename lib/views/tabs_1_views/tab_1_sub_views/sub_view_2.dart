@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
-import 'package:material3_app/theme/custom_color.dart';
+import 'package:connected_db_firebase/theme/custom_color.dart';
 import 'package:provider/provider.dart';
 
 import '../../../utils/commonactions/common_actions.dart';

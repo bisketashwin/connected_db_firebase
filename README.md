@@ -1,4 +1,4 @@
-# material3_app
+# connected_db_firebase
 
 A new Flutter project.
 

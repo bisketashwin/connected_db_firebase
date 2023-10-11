@@ -8,7 +8,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:material3_app/test_views/main_provider_example.dart';
+import 'package:connected_db_firebase/test_views/main_provider_example.dart';
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {

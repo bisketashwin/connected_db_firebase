@@ -1,12 +1,15 @@
 // main.dart
 
 import 'package:flutter/material.dart';
-import 'package:material3_app/utils/pre_created_data/users_data_dummy.dart';
+import 'package:connected_db_firebase/utils/pre_created_data/users_data_dummy.dart';
 import 'package:provider/provider.dart';
 import 'app_views.dart';
 import 'theme/my_new_theme.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+// import 'package:firebase_firestore/firebase_firestore.dart';
 
 import 'utils/models/models.dart';
 

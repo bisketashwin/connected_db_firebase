@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:material3_app/utils/widgets/widgets.dart';
+import 'package:connected_db_firebase/utils/widgets/widgets.dart';
 
 Widget commodityCardSmall(context, commodityTickets, index) {
   bool showDetails = false;
