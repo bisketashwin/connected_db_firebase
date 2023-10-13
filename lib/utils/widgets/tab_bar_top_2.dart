@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:connected_db_firebase/theme/custom_color.dart';
+// import 'package:connected_db_firebase/theme/custom_color.dart';
 
 Widget myTabBar2({required context}) {
-  Color color1 = Theme.of(context)
-      .extension<CustomColors>()!
-      .sourceCustomcolor1!
-      .withAlpha(155);
+  // Color color1 = Theme.of(context)
+  //     .extension<CustomColors>()!
+  //     .sourceCustomcolor1!
+  //     .withAlpha(155);
 
   Color color2 =
       Theme.of(context).colorScheme.onPrimaryContainer.withAlpha(155);

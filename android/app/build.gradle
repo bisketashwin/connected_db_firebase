@@ -45,6 +45,7 @@ android {
         applicationId "com.example.connected_db_firebase"
         // You can update the following values to match your application needs.
         // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.
+        multiDexEnabled true // i added this to fix an error  The error you're encountering is related to the number of method references exceeding the limit of 64K in Android development, which requires enabling multidex support. 
         minSdkVersion flutter.minSdkVersion
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()

@@ -1,5 +1,6 @@
 // main.dart
 
+import 'package:connected_db_firebase/firebase_options.dart';
 import 'package:flutter/material.dart';
 import 'package:connected_db_firebase/utils/pre_created_data/users_data_dummy.dart';
 import 'package:provider/provider.dart';
@@ -8,8 +9,8 @@ import 'theme/my_new_theme.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-// import 'package:firebase_firestore/firebase_firestore.dart';
+// import 'package:firebase_auth/firebase_auth.dart';
+// import 'package:cloud_firestore/cloud_firestore.dart';
 
 import 'utils/models/models.dart';
 
@@ -51,6 +52,9 @@ class _MyAppState extends State<MyApp> {
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+
   await SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
@@ -136,9 +140,9 @@ void createDummyCommodityTickets(BuildContext context) {
   commodityTicketController.addCommodityTicket(commodityTicket9());
   commodityTicketController.addCommodityTicket(commodityTicket10());
 
-  List<CommodityTicket> commodityTickets =
-      Provider.of<CommodityTicketController>(context, listen: false)
-          .commodityTickets;
+  // Future<QuerySnapshot<Object?>> commodityTickets =
+  //     Provider.of<CommodityTicketController>(context, listen: false)
+  //         .commodityTickets;
 
   //debugPrint('checking if the list is created ${commodityTickets.length}');
 

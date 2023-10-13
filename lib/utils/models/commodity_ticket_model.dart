@@ -2,6 +2,7 @@ import 'package:json_annotation/json_annotation.dart';
 import 'package:flutter/foundation.dart';
 import 'package:uuid/uuid.dart';
 import 'dart:convert';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 part 'commodity_ticket_model.g.dart';
 
@@ -46,42 +47,52 @@ class CommodityTicket {
 }
 
 class CommodityTicketController extends ChangeNotifier {
-  final List<CommodityTicket> _commodityTickets = [];
+  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
   final Uuid _uuid = const Uuid();
 
-  List<CommodityTicket> get commodityTickets => _commodityTickets;
+  CollectionReference get _commodityTicketsRef =>
+      _firestore.collection('commodity_tickets');
 
-  // Add a function to generate a unique ID for a new commodity ticket.
-  String generateUniqueId() {
-    return _uuid.v4();
+  /// Gets a list of all commodity tickets.
+  Future<List<CommodityTicket>> getCommodityTickets() async {
+    // Get the QuerySnapshot object.
+    QuerySnapshot<Object?> querySnapshot = await _commodityTicketsRef.get();
+
+    // Create a list to store the CommodityTicket objects.
+    List<CommodityTicket> commodityTickets = [];
+
+    // Iterate over the DocumentSnapshot objects in the QuerySnapshot object.
+    for (DocumentSnapshot<Object?> documentSnapshot in querySnapshot.docs) {
+      Map<String, dynamic> data =
+          documentSnapshot.data() as Map<String, dynamic>;
+
+      // Get the CommodityTicket object from the DocumentSnapshot object.
+      CommodityTicket commodityTicket = CommodityTicket.fromJson(data);
+
+      // Add the CommodityTicket object to the list.
+      commodityTickets.add(commodityTicket);
+    }
+
+    // Return the list of CommodityTicket objects.
+    return commodityTickets;
   }
 
-  // Add a function to serialize a CommodityTicket object to JSON.
-  String serializeCommodityTicketToJson(CommodityTicket commodityTicket) {
-    return jsonEncode(commodityTicket.toJson());
-  }
+  /// Adds a new commodity ticket to the database.
+  void addCommodityTicket(CommodityTicket commodityTicket) async {
+    commodityTicket.id = _uuid.v4();
 
-  // Add a function to deserialize a JSON string to a CommodityTicket object.
-  CommodityTicket deserializeCommodityTicketFromJson(String json) {
-    return _$CommodityTicketFromJson(jsonDecode(json));
-  }
+    await _commodityTicketsRef
+        .doc(commodityTicket.id)
+        .set(commodityTicket.toJson());
 
-  // Add a function to create a new commodity ticket.
-  void addCommodityTicket(CommodityTicket commodityTicket) {
-    _commodityTickets.add(commodityTicket);
+    // Notify all listeners that the data has changed.
     notifyListeners();
   }
 
-  // Add a function to edit a commodity ticket.
-  void editCommodityTicket(CommodityTicket commodityTicket) {
-    _commodityTickets[_commodityTickets.indexOf(commodityTicket)] =
-        commodityTicket;
-    notifyListeners();
-  }
-
-  // Add a function to delete a commodity ticket.
-  void deleteCommodityTicket(CommodityTicket commodityTicket) {
-    _commodityTickets.remove(commodityTicket);
-    notifyListeners();
+  /// Edits a commodity ticket in the database.
+  void editCommodityTicket(CommodityTicket commodityTicket) async {
+    await _commodityTicketsRef
+        .doc(commodityTicket.id)
+        .update(commodityTicket.toJson());
   }
 }

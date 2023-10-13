@@ -2,7 +2,6 @@
 // ignore_for_file: constant_identifier_names
 
 // import 'package:connected_db_firebase/views/home_2_view.dart';
-import 'package:connected_db_firebase/views/home_2_view.dart';
 import 'package:connected_db_firebase/views/home_3_view.dart';
 import 'package:connected_db_firebase/views/log_in_view.dart';
 

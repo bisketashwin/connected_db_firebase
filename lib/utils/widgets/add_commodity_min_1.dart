@@ -26,11 +26,24 @@ class addCommodityMin1 extends StatefulWidget {
 }
 
 class _MyAppState extends State<addCommodityMin1> {
-  late List<CommodityTicket> commodityTickets = widget.commodityTickets;
   late int index = widget.index;
   bool showDetails = false;
   double bottomPadding = 15;
   String ticketStatus = '';
+  List<CommodityTicket> commodityTickets = [];
+  @override
+  void initState() {
+    super.initState();
+    fetchCommodityTickets();
+  }
+
+  // Method to fetch commodity tickets using the CommodityTicketController.
+  void fetchCommodityTickets() async {
+    final controller =
+        Provider.of<CommodityTicketController>(context, listen: false);
+    commodityTickets = await controller.getCommodityTickets();
+    setState(() {});
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -40,8 +53,6 @@ class _MyAppState extends State<addCommodityMin1> {
   Widget addCommDetails(context, state) {
     /////////////////
 
-    List<CommodityTicket> commodityTickets =
-        Provider.of<CommodityTicketController>(context).commodityTickets;
     int index = state.index;
     List<FarmAddress> farmAddresses =
         Provider.of<FarmAddressController>(context).farmAddresses;
@@ -49,14 +60,14 @@ class _MyAppState extends State<addCommodityMin1> {
         Provider.of<WarehouseAddressController>(context).warehouseAddresses;
     List<CommodityOwner> commodityOwners =
         Provider.of<CommodityOwnerController>(context).commodityOwners;
-    List<User> users = Provider.of<UserController>(context).users;
+    // List<User> users = Provider.of<UserController>(context).users;
 
-    var commodityTicket = commodityTickets[index];
+    var commodityTicket = widget.commodityTickets[index];
 
     var ownerId = commodityTicket.commodityOwnerId;
     var pickupId = commodityTicket.pickUpAddressId;
     var destId = commodityTicket.destinationAddressId;
-    var userId = commodityTicket.destinationAddressId;
+    // var userId = commodityTicket.destinationAddressId;
 
     CommodityOwner comOwner = commodityOwners
         .firstWhere((commodityOwner) => commodityOwner.id == ownerId);
@@ -64,7 +75,7 @@ class _MyAppState extends State<addCommodityMin1> {
         farmAddresses.firstWhere((address) => address.id == pickupId);
     WarehouseAddress destAd =
         warehouseAddresses.firstWhere((address) => address.id == destId);
-    User user = users.firstWhere((user) => user.id == userId);
+    // User user = users.firstWhere((user) => user.id == userId);
 
     if (commodityTicket.status.isCaseInsensitiveContainsAny('attention')) {
       ticketStatus = commodityTicket.status;
@@ -143,7 +154,7 @@ class _MyAppState extends State<addCommodityMin1> {
                                           textSize: 'bodyMedium',
                                           color: color1,
                                         ),
-                                        SizedBox(
+                                        const SizedBox(
                                           width: 10,
                                         ),
                                         iconLabel(
@@ -173,7 +184,7 @@ class _MyAppState extends State<addCommodityMin1> {
                                   visible: showDetails,
                                   child: Column(
                                     children: [
-                                      SizedBox(
+                                      const SizedBox(
                                         height: 10,
                                       ),
                                       const Divider(

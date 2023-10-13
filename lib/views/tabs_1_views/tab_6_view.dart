@@ -1,13 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:connected_db_firebase/views/tabs_1_views/tab_1_sub_views/sub_view_1.dart';
-import 'package:provider/provider.dart';
 
 import '../../theme/custom_color.dart';
-import '../../utils/models/controllers.dart';
-import '../../utils/models/models.dart';
 import '../../utils/widgets/widgets.dart';
-import 'tab_1_sub_views/sub_view_2.dart';
 import 'tab_1_sub_views/sub_view_3.dart';
 import 'tab_1_sub_views/sub_view_4.dart';
 import 'tab_1_sub_views/sub_view_5.dart';
@@ -131,23 +126,3 @@ class _Tab6State extends State<Tab6> {
     );
   }
 }
-
-// Widget commodityList(context) {
-//   List<CommodityTicket> commodityTickets =
-//       Provider.of<CommodityTicketController>(context).commodityTickets;
-//   return ListView.builder(
-//     shrinkWrap: true,
-
-//     ///NOTE:  these 3 are super critical properties for nested lsit views to wrok
-//     primary: false,
-
-//     ///NOTE:  these 3 are super critical properties for nested lsit views to wrok
-//     itemCount: commodityTickets.length,
-//     itemBuilder: (context, index) {
-//       // return Text(commodityTickets[index].companyName);
-//       return addCommodityDetails1(
-//           commodityTickets: commodityTickets, index: index);
-//     },
-//   );
-//   // cardWithBanner(context, _showDetails),
-// }

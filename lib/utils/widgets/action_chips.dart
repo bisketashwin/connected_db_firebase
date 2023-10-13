@@ -12,7 +12,7 @@ getButtons(String ticketStatus, context) {
     case 'complete':
       return actionChips3(context);
     default:
-      return Text('data');
+      return const Text('data');
   }
 }
 
@@ -25,14 +25,14 @@ getBigButtons(String ticketStatus, context) {
     case 'complete':
       return actionChipsBig3(context);
     default:
-      return Text('data');
+      return const Text('data');
   }
 }
 
 Widget actionChips1(context) {
   // var color1 = CommodityTicketStatus.outward.color;
   var color2 = Theme.of(context).colorScheme.onPrimaryContainer.withAlpha(255);
-  var color1 = Theme.of(context).colorScheme.secondary;
+  // var color1 = Theme.of(context).colorScheme.secondary;
   var textStyle1 = Theme.of(context)
       .textTheme
       .bodySmall!
@@ -67,7 +67,7 @@ Widget actionChips1(context) {
 Widget actionChips2(context) {
   // var color1 = CommodityTicketStatus.outward.color;
   var color2 = Theme.of(context).colorScheme.onPrimaryContainer.withAlpha(255);
-  var color1 = Theme.of(context).colorScheme.secondary;
+  // var color1 = Theme.of(context).colorScheme.secondary;
   var textStyle1 = Theme.of(context)
       .textTheme
       .bodySmall!
@@ -102,7 +102,7 @@ Widget actionChips2(context) {
 Widget actionChips3(context) {
   // var color1 = CommodityTicketStatus.outward.color;
   var color2 = Theme.of(context).colorScheme.onPrimaryContainer.withAlpha(255);
-  var color1 = Theme.of(context).colorScheme.secondary;
+  // var color1 = Theme.of(context).colorScheme.secondary;
   var textStyle1 = Theme.of(context)
       .textTheme
       .bodySmall!
@@ -168,7 +168,7 @@ Widget actionChipsBig1(context) {
             style: textStyle1,
           ),
         ),
-        SizedBox(
+        const SizedBox(
           width: 10,
         ),
         ActionChip(
@@ -211,7 +211,7 @@ Widget actionChipsBig2(context) {
             style: textStyle1,
           ),
         ),
-        SizedBox(
+        const SizedBox(
           width: 10,
         ),
         ActionChip(
@@ -254,7 +254,7 @@ Widget actionChipsBig3(context) {
             style: textStyle1,
           ),
         ),
-        SizedBox(
+        const SizedBox(
           width: 10,
         ),
         ActionChip(
@@ -267,7 +267,7 @@ Widget actionChipsBig3(context) {
             style: textStyle1,
           ),
         ),
-        SizedBox(
+        const SizedBox(
           width: 10,
         ),
         ActionChip(

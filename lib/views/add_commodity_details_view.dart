@@ -5,7 +5,7 @@ import 'package:connected_db_firebase/utils/models/models.dart';
 import 'package:connected_db_firebase/utils/widgets/widgets.dart';
 import 'package:provider/provider.dart';
 
-import '../theme/custom_color.dart';
+// import '../theme/custom_color.dart';
 import '../utils/commonactions/common_actions.dart';
 
 //Alerts sub segregated as QC done
@@ -23,12 +23,25 @@ class AddCommodityDetailsView extends StatefulWidget {
 }
 
 class _MyAppState extends State<AddCommodityDetailsView> {
-  // late List<CommodityTicket> commodityTickets = widget.commodityTickets;
-  // late int index = widget.index;
+  List<CommodityTicket> commodityTickets = [];
   final int index = Get.arguments['index']; // this is getX implementation
   bool showDetails = false;
   double bottomPadding = 15;
   String ticketStatus = '';
+
+  @override
+  void initState() {
+    super.initState();
+    fetchCommodityTickets();
+  }
+
+  // Method to fetch commodity tickets using the CommodityTicketController.
+  void fetchCommodityTickets() async {
+    final controller =
+        Provider.of<CommodityTicketController>(context, listen: false);
+    commodityTickets = await controller.getCommodityTickets();
+    setState(() {});
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -36,8 +49,6 @@ class _MyAppState extends State<AddCommodityDetailsView> {
   }
 
   Widget addCommDetails(context, state) {
-    List<CommodityTicket> commodityTickets =
-        Provider.of<CommodityTicketController>(context).commodityTickets;
     int index = state.index;
     List<FarmAddress> farmAddresses =
         Provider.of<FarmAddressController>(context).farmAddresses;
@@ -79,15 +90,13 @@ class _MyAppState extends State<AddCommodityDetailsView> {
       ///////////
       var color1 = Theme.of(context).colorScheme.onBackground.withOpacity(0.6);
       var defaultTextStyle = Theme.of(context).textTheme.bodyLarge;
-      var color2 =
-          Theme.of(context).extension<CustomColors>()!.sourceCustomcolor2;
 
       return Scaffold(
         bottomSheet: Container(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(5.0),
             color: Colors.white,
-            boxShadow: [
+            boxShadow: const [
               BoxShadow(
                 color: Colors.grey,
                 offset: Offset(0.0, -0.5), //(x,y)
@@ -100,7 +109,7 @@ class _MyAppState extends State<AddCommodityDetailsView> {
           child: Visibility(
               visible: showDetails,
               child: Padding(
-                padding: EdgeInsets.only(left: 10, right: 10),
+                padding: const EdgeInsets.only(left: 10, right: 10),
                 child: getBigButtons(ticketStatus, context),
               )),
         ),
@@ -109,9 +118,9 @@ class _MyAppState extends State<AddCommodityDetailsView> {
           floatHeaderSlivers: true,
           headerSliverBuilder: (context, innerBocIsScrolled) => [
             SliverAppBar(
-              title: Text('Commodity Details 4'),
+              title: const Text('Commodity Details 4'),
               bottom: PreferredSize(
-                preferredSize: Size.fromHeight(15),
+                preferredSize: const Size.fromHeight(15),
                 child: topBannerStatus(
                   context: context,
                   status: commodityTicket.status,
@@ -139,7 +148,7 @@ class _MyAppState extends State<AddCommodityDetailsView> {
                               name: commodityTicket.commodity, size: 100.0),
                         ],
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 10,
                       ),
                       Column(
@@ -160,7 +169,7 @@ class _MyAppState extends State<AddCommodityDetailsView> {
                                 textSize: 'bodyMedium',
                                 color: color1,
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 width: 10,
                               ),
                               iconLabel(
@@ -190,7 +199,7 @@ class _MyAppState extends State<AddCommodityDetailsView> {
                           Text(pickAd.street),
                           Text(
                             pickAd.villageOrTaluk,
-                            style: TextStyle(fontWeight: FontWeight.w600),
+                            style: const TextStyle(fontWeight: FontWeight.w600),
                           ),
                           Text(
                               '${pickAd.zilla}, ${pickAd.state} - ${pickAd.pincode}'),
@@ -211,7 +220,7 @@ class _MyAppState extends State<AddCommodityDetailsView> {
                           Text(destAd.street),
                           Text(
                             destAd.villageOrTaluk,
-                            style: TextStyle(fontWeight: FontWeight.w600),
+                            style: const TextStyle(fontWeight: FontWeight.w600),
                           ),
                           Text(
                               '${destAd.zilla}, ${destAd.state} -${destAd.pincode}'),
@@ -228,11 +237,11 @@ class _MyAppState extends State<AddCommodityDetailsView> {
     } else {
       return Scaffold(
         appBar: AppBar(
-          title: Text('Commodity Details'),
+          title: const Text('Commodity Details'),
         ),
         body: Center(
             child: Container(
-          child: Text('nothing to show'),
+          child: const Text('nothing to show'),
         )),
       );
     }

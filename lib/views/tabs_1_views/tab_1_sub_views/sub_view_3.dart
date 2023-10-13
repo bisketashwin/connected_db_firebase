@@ -1,12 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:intl/intl.dart';
 import 'package:connected_db_firebase/theme/custom_color.dart';
 import 'package:provider/provider.dart';
-
-import '../../../utils/commonactions/common_actions.dart';
-import '../../../utils/constants/constants_1.dart';
-import '../../../utils/models/controllers.dart';
 import '../../../utils/models/models.dart';
 import '../../../utils/widgets/widgets.dart';
 
@@ -22,15 +17,28 @@ class SubSiew3 extends StatefulWidget {
 }
 
 class _MyAppState extends State<SubSiew3> {
+  List<CommodityTicket> commodityTickets = [];
+  @override
+  void initState() {
+    super.initState();
+    fetchCommodityTickets();
+  }
+
+  // Method to fetch commodity tickets using the CommodityTicketController.
+  void fetchCommodityTickets() async {
+    final controller =
+        Provider.of<CommodityTicketController>(context, listen: false);
+    commodityTickets = await controller.getCommodityTickets();
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
-    List<CommodityTicket> commodityTickets =
-        Provider.of<CommodityTicketController>(context).commodityTickets;
     return Scaffold(
       backgroundColor:
           Theme.of(context).extension<CustomColors>()!.sourceCustomcolor2,
       body: Padding(
-        padding: EdgeInsets.only(left: 5, right: 5.0),
+        padding: const EdgeInsets.only(left: 5, right: 5.0),
         child: ListView(
           // controller: scrollController,
           shrinkWrap:

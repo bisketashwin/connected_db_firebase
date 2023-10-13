@@ -21,12 +21,7 @@ class Tab2 extends StatefulWidget {
 
 class _Tab2State extends State<Tab2> {
   ScrollController scrollController = ScrollController();
-  // Map<String, bool> _showDetails = {
-  //   'card 1': false,
-  //   'card info': false,
-  //   'card random': false,
-  // };
-
+  List<CommodityTicket> commodityTickets = [];
   @override
   void initState() {
     super.initState();
@@ -39,6 +34,8 @@ class _Tab2State extends State<Tab2> {
         widget.hideNavigation();
       }
     });
+    // Fetch commodity tickets when the widget is initialized.
+    fetchCommodityTickets();
   }
 
   @override
@@ -55,10 +52,15 @@ class _Tab2State extends State<Tab2> {
     });
   }
 
+  void fetchCommodityTickets() async {
+    final controller =
+        Provider.of<CommodityTicketController>(context, listen: false);
+    commodityTickets = await controller.getCommodityTickets();
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
-    List<CommodityTicket> commodityTickets =
-        Provider.of<CommodityTicketController>(context).commodityTickets;
     return Scaffold(
       backgroundColor:
           Theme.of(context).extension<CustomColors>()!.sourceCustomcolor2,
