@@ -7,9 +7,28 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:245175183655:android:39a364442354768066e102",
+        "mobilesdk_app_id": "1:245175183655:android:72d939923bf3815866e102",
         "android_client_info": {
           "package_name": "com.example.connected_db_firebase"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBrJY1eg9b0ha094VcZ_l8UtZrjqSuMTtE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:245175183655:android:39a364442354768066e102",
+        "android_client_info": {
+          "package_name": "com.example.material3_app"
         }
       },
       "oauth_client": [],

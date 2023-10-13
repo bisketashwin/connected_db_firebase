@@ -55,7 +55,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyBrJY1eg9b0ha094VcZ_l8UtZrjqSuMTtE',
-    appId: '1:245175183655:android:39a364442354768066e102',
+    appId: '1:245175183655:android:72d939923bf3815866e102',
     messagingSenderId: '245175183655',
     projectId: 'commodity-trading-ebfcd',
     storageBucket: 'commodity-trading-ebfcd.appspot.com',

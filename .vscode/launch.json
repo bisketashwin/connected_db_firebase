@@ -1,0 +1,39 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+
+        {
+            "name": "LOCAL EMULATOR",
+            "cwd": "connected_db_firebase",
+            "request": "launch",
+            "type": "dart",
+            "toolArgs": [
+                "--dart-define", 
+                "USE_FIREBASE_EMU=true", // set this false if you are using firecould online
+                "--dart-define", 
+                "FIREBASE_EMU_URL=192.168.1.2",
+            ]
+        },
+
+        // {
+        //     "name": "connected_db_firebase",
+        //     "request": "launch",
+        //     "type": "dart"
+        // },
+        {
+            "name": "connected_db_firebase (profile mode)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        // {
+        //     "name": "connected_db_firebase (release mode)",
+        //     "request": "launch",
+        //     "type": "dart",
+        //     "flutterMode": "release"
+        // }
+    ]
+}

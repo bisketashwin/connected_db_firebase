@@ -1,8 +1,12 @@
+import 'dart:io';
+
 import 'package:json_annotation/json_annotation.dart';
 import 'package:flutter/foundation.dart';
 import 'package:uuid/uuid.dart';
-import 'dart:convert';
+// import 'dart:convert';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_core/firebase_core.dart';
+// import 'package:firebase_emulators/firebase_emulators.dart';
 
 part 'commodity_ticket_model.g.dart';
 
@@ -46,8 +50,11 @@ class CommodityTicket {
   Map<String, dynamic> toJson() => _$CommodityTicketToJson(this);
 }
 
+// final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+
 class CommodityTicketController extends ChangeNotifier {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+
   final Uuid _uuid = const Uuid();
 
   CollectionReference get _commodityTicketsRef =>
